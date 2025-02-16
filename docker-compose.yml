@@ -1,0 +1,23 @@
+# https://medium.com/@vishal.sharma./run-postgresql-and-pgadmin-using-docker-compose-34120618bcf9
+services:
+  database:
+    image: postgres
+    container_name: katboom_pg_db
+    restart: unless-stopped
+    ports:
+      - 5432:5432
+    volumes:
+      - data:/var/lib/postgresql/data
+      - ./sql/init.sql:/docker-entrypoint-initdb.d/init.sql
+    env_file:
+      - .env
+  adminer:
+    image: adminer
+    container_name: katboom_adminer
+    depends_on:
+      - database
+    ports:
+      - 8080:8080
+
+volumes:
+  data:
