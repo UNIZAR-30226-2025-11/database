@@ -4,8 +4,7 @@ services:
     image: postgres
     container_name: katboom_pg_db
     restart: unless-stopped
-    ports:
-      - 5432:5432
+    network_mode: 'host'
     volumes:
       - data:/var/lib/postgresql/data
       - ./sql/init.sql:/docker-entrypoint-initdb.d/init.sql
