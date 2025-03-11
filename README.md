@@ -1,3 +1,7 @@
+# OBSOLETE
+
+We've moved the database definition to the backend since launching both containers separately was causing trouble.
+
 # Database
 
 This repository contains the Compose configuration to lauch a Postgres database alongside an Adminer page locally.
